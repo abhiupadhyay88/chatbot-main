@@ -12,7 +12,7 @@ QUESTION_LIST = [
     "Hello, I am going to ask you few questions that will help me know you better?",
 	"What is your name?",
     "Are you male or female?",
-    "When were you born?",
+    "When were you born?Please enter in dd-mm-YYYY format",
     "Are you a smoker?",
     "Thank you. Type 'Done' for results."
 ]
