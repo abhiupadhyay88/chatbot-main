@@ -11,4 +11,6 @@ Commands to make the project running
 
 python manage.py migrate
 python manage.py runserver 127.0.0.1:8000 will run the application as desired.
+
+python manage.py test main_bot.test_chatbot.TestChatbotter will run the tests.
 # chatbot-main
