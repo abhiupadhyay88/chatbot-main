@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block js %}
+  <script type="text/javascript" src="/static/js/script.js"></script>
+{% endblock %}
+
+{% block content %}
+  <div id="app" class="container top-padding">
+  	<div class="row">
+  		<div class="col-md-12 messages">
+  			<div class="card col-md-6 chat-message">
+				<div class="card-body">
+					<p class="question" id="start">Hello, I am going to ask you few questions that will help me know you better?</p>
+				</div>
+			</div>
+			<div class="card col-md-6 chat-message">
+				<div class="card-body">
+					<p class="question" id="name">What is your name?</p>
+				</div>
+			</div>
+  		</div>
+	  		
+  	</div>
+  	<div id="text-box" class="row top-padding">
+  		<div class="col-md-12">
+  			<textarea class="form-control text" ></textarea>
+				<i class="fas fa-arrow-circle-right send-btn" ></i>
+				<p class="error-message no-message hidden">Please type something first.</p>
+  		</div>
+  	</div>
+  </div>
+{% endblock %}
+
