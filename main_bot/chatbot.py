@@ -1,6 +1,7 @@
 from main_bot.models import UserEntry
 from datetime import datetime
-
+import json
+from main_bot.settings import BASE_DIR
 
 ##assigning keyword arguments to object
 def obj_attr_set(obj,**kwargs):
@@ -8,18 +9,13 @@ def obj_attr_set(obj,**kwargs):
         setattr(obj,k,v)
     return
 
-## Current question list
-QUESTION_LIST = [
-    "Hello, I am going to ask you few questions that will help me know you better?",
-	"What is your name?",
-    "Are you male or female?",
-    "When were you born?Please enter in dd-mm-YYYY format",
-    "Are you a smoker?",
-    "Thank you. Type 'Done' for results."
-]
+##Fetching Question List Data
+f = open(BASE_DIR + '/main_bot/questions_details.json','r')
+val = f.read()
+questions_info = json.loads(val)
+QUESTION_LIST = questions_info.get('question_list',[])
+QUESTION_INDEX_MAPPING = questions_info.get('question_index_mappng',[])
 
-## Question mapping logic
-QUESTION_INDEX_MAPPING = ['start','name','sex','birth_date','smoking_status','result']
 
 class chatbotter():
     def __init__(self,**kwargs):
