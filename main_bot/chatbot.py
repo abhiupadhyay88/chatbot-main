@@ -1,4 +1,5 @@
 from main_bot.models import UserEntry
+from datetime import datetime
 
 
 ##assigning keyword arguments to object
@@ -34,8 +35,9 @@ class chatbotter():
     def update_field(self):
         user_entry = UserEntry.objects.filter(session_id=self.session_id).first()
         if not user_entry:
-            user_entry = UserEntry.objects.create(session_id=self.session_id)
+            user_entry = UserEntry.objects.create(session_id=self.session_id,created_at=datetime.now(),updated_at=datetime.now())
         user_entry.__dict__[self.update_field_name]=self.update_field_value
+        user_entry.updated_at = datetime.now()
         user_entry.save()
         self.get_next_question()
 
