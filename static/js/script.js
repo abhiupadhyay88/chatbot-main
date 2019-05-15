@@ -13,10 +13,20 @@ $(function() {
     }
 
     function validate_date(value){
+        flag = false
         if (value.trim().match(/^\d\d-\d\d-\d\d\d\d$/)){
-            return true
+            date_arr = value.split("-")
+            currTime = new Date()
+            currYear = currTime.getFullYear()
+            if (date_arr[2] > 1900 && date_arr[2] <= currYear){
+                if ( date_arr[1] <= 12 && date_arr[1] >= 1 ){
+                    if ( date_arr[0] <= 31 && date_arr[0] >= 1 )
+                        flag = true
+                }
+            }
+
         }
-        return false
+        return flag
     }
 
     function create_new_question(next_question_id,next_question){
